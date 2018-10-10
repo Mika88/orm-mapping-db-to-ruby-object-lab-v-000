@@ -43,9 +43,8 @@ class Student
 
       students_9 = []
       DB[:conn].execute(sql, 9).map do |row|
-        students_9 << self.new_from_db(row).id
+         self.new_from_db(row).id
        end
-     students_9
   end
 
   def self.students_below_12th_grade
