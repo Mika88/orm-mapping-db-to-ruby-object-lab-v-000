@@ -46,7 +46,6 @@ class Student
         students_9 << self.new_from_db(row).id
        end
      students_9
-      binding.pry
   end
 
   def self.students_below_12th_grade
