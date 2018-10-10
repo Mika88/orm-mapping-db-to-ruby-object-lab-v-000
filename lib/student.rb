@@ -43,8 +43,9 @@ class Student
 
       students_9 = []
       DB[:conn].execute(sql, 9).map do |row|
-         self.new_from_db(row).id
+         students_9 << self.new_from_db(row).id
        end
+        students_9
   end
 
   def self.students_below_12th_grade
@@ -59,6 +60,18 @@ class Student
       end
   end
 
+  def self.first_X_students_in_grade_10(x)
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE grade <= ?
+      SQL
+
+      DB[:conn].execute(sql, 11).map do |row|
+        self.new_from_db(row)
+      end
+  end
+  
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
