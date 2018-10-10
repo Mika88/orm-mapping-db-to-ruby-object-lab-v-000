@@ -70,6 +70,7 @@ class Student
          self.new_from_db(row)
       end
       students
+      binding.pry
   end
 
   def self.first_student_in_grade_10
