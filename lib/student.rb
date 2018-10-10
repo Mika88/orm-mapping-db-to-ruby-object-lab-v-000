@@ -66,9 +66,10 @@ class Student
       LIMIT ?
       SQL
 
-      DB[:conn].execute(sql, 10, x).map do |row|
+      students = DB[:conn].execute(sql, 10, x).map do |row|
          self.new_from_db(row)
       end
+      students
   end
 
   def self.first_student_in_grade_10
