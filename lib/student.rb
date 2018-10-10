@@ -14,7 +14,7 @@ class Student
       SELECT *
       FROM students
     SQL
-    
+
     DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
@@ -32,7 +32,7 @@ class Student
         self.new_from_db(row)
       end.first
   end
-  
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
