@@ -43,8 +43,9 @@ class Student
 
       students_9 = []
       DB[:conn].execute(sql, 9).map do |row|
-        self.new_from_db(row)
-      students_9 << end.first
+        students_9 << self.new_from_db(row).id
+       end
+     students_9
       binding.pry
   end
 
