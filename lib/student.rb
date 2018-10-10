@@ -40,10 +40,11 @@ class Student
       FROM students
       WHERE grade = ?
       SQL
-
+      
+      students_9 = []
       DB[:conn].execute(sql, 9).map do |row|
         self.new_from_db(row)
-      end
+      students_9 << end.first
   end
 
   def self.students_below_12th_grade
